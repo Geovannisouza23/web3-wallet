@@ -1,11 +1,16 @@
-import { useMemo, useState } from 'react'
-import './App.css'
+import { useState } from 'react'
+import './styles/App.css'
 import {
   mockHoldings,
   mockMetrics,
   mockPerformance,
   mockTransactions,
 } from './data/mockData'
+import HoldingRow from './components/HoldingRow'
+import MetricCard from './components/MetricCard'
+import MockChart from './components/MockChart'
+import TransactionRow from './components/TransactionRow'
+import WalletModal from './components/WalletModal'
 import useWallet from './hooks/useWallet'
 
 const formatAddress = (address) => {
@@ -15,128 +20,6 @@ const formatAddress = (address) => {
 
   return `${address.slice(0, 6)}...${address.slice(-4)}`
 }
-
-const MockChart = ({ data }) => {
-  const path = useMemo(() => {
-    if (!data.length) {
-      return ''
-    }
-
-    const max = Math.max(...data.map((point) => point.value))
-    const min = Math.min(...data.map((point) => point.value))
-    const range = max - min || 1
-
-    return data
-      .map((point, index) => {
-        const x = (index / (data.length - 1)) * 100
-        const y = 100 - ((point.value - min) / range) * 100
-        return `${index === 0 ? 'M' : 'L'} ${x},${y}`
-      })
-      .join(' ')
-  }, [data])
-
-  return (
-    <div className="chart-wrapper">
-      <svg viewBox="0 0 100 100" className="chart-svg" role="img">
-        <path d={path} className="chart-line" />
-        <path d={`${path} L 100 100 L 0 100 Z`} className="chart-fill" />
-      </svg>
-      <div className="chart-labels">
-        {data.map((point) => (
-          <span key={point.label}>{point.label}</span>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-const WalletModal = ({
-  open,
-  onClose,
-  onSelect,
-  isConnecting,
-  hasWalletConnect,
-}) => {
-  if (!open) {
-    return null
-  }
-
-  return (
-    <div className="modal-backdrop" role="presentation" onClick={onClose}>
-      <div
-        className="modal"
-        role="dialog"
-        aria-modal="true"
-        onClick={(event) => event.stopPropagation()}
-      >
-        <div className="modal-header">
-          <h3>Conectar wallet</h3>
-          <button className="ghost" onClick={onClose}>
-            Fechar
-          </button>
-        </div>
-        <div className="modal-body">
-          <button
-            className="wallet-option"
-            onClick={() => onSelect('metamask')}
-            disabled={isConnecting}
-          >
-            <div>
-              <h4>MetaMask</h4>
-              <p>Conexao direta via extensao.</p>
-            </div>
-            <span>→</span>
-          </button>
-          <button
-            className="wallet-option"
-            onClick={() => onSelect('walletconnect')}
-            disabled={isConnecting || !hasWalletConnect}
-          >
-            <div>
-              <h4>WalletConnect</h4>
-              <p>QR code para mobile e multiplas carteiras.</p>
-            </div>
-            <span>{hasWalletConnect ? '→' : 'ID faltando'}</span>
-          </button>
-          {!hasWalletConnect && (
-            <div className="modal-hint">
-              Configure VITE_WALLETCONNECT_PROJECT_ID no .env para ativar.
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const MetricCard = ({ title, value, detail, delay }) => (
-  <div className="card metric reveal" style={{ '--delay': `${delay}ms` }}>
-    <p className="card-title">{title}</p>
-    <h4>{value}</h4>
-    <span>{detail}</span>
-  </div>
-)
-
-const HoldingRow = ({ asset, share, change }) => (
-  <div className="holding-row">
-    <span>{asset}</span>
-    <span>{share}</span>
-    <span className={change.startsWith('+') ? 'good' : 'muted'}>{change}</span>
-  </div>
-)
-
-const TransactionRow = ({ title, time, amount, status }) => (
-  <div className="transaction-row">
-    <div>
-      <h5>{title}</h5>
-      <p>{time}</p>
-    </div>
-    <div className="transaction-meta">
-      <span>{amount}</span>
-      <span className={status === 'Confirmado' ? 'good' : 'warn'}>{status}</span>
-    </div>
-  </div>
-)
 
 function App() {
   const {
@@ -156,10 +39,7 @@ function App() {
     : '--'
 
   const handleConnect = async (type) => {
-    if (type === 'metamask') {
-      await connectMetaMask()
-    }
-
+    
     if (type === 'walletconnect') {
       await connectWalletConnect()
     }
@@ -171,9 +51,9 @@ function App() {
     <div className="app">
       <header className="topbar">
         <div className="brand">
-          <span className="brand-mark">NOVA</span>
+          <span className="brand-mark">web3</span>
           <div>
-            <h1>Nebula Vault</h1>
+            <h1>web3 blockchain</h1>
             <p>Portfolio Web3</p>
           </div>
         </div>
@@ -213,9 +93,6 @@ function App() {
           <nav>
             <span className="nav-label">Menu</span>
             <button className="nav-item active">Overview</button>
-            <button className="nav-item">Analytics</button>
-            <button className="nav-item">Insights</button>
-            <button className="nav-item">Settings</button>
           </nav>
           <div className="sidebar-card">
             <p>Conexao</p>

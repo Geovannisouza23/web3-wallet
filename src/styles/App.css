@@ -16,7 +16,7 @@
   align-items: center;
   gap: 1.5rem;
   padding: 1.2rem 1.6rem;
-  background: rgba(21, 31, 44, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   border: 1px solid var(--border);
   border-radius: 24px;
   backdrop-filter: blur(14px);
@@ -49,8 +49,8 @@
   width: 44px;
   height: 44px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(106, 214, 214, 0.3), rgba(50, 180, 255, 0.3));
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(5, 8, 10, 0.3));
+  border: 1px solid rgba(0, 0, 0, 0.08);
   font-weight: 600;
   letter-spacing: 0.1em;
   color: var(--text-main);
@@ -78,7 +78,7 @@
   padding: 0.6rem 1rem;
   border-radius: 16px;
   border: 1px solid var(--border);
-  background: rgba(10, 15, 24, 0.6);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .wallet-card p {
@@ -107,7 +107,7 @@
 }
 
 .sidebar {
-  background: rgba(18, 26, 37, 0.75);
+  background: rgba(0, 0, 0, 0.75);
   border: 1px solid var(--border);
   border-radius: 24px;
   padding: 1.6rem;
@@ -144,14 +144,14 @@
 
 .nav-item:hover,
 .nav-item.active {
-  border-color: rgba(106, 214, 214, 0.45);
-  background: rgba(106, 214, 214, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .sidebar-card {
   padding: 1rem;
   border-radius: 16px;
-  background: rgba(12, 17, 24, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   border: 1px solid var(--border);
 }
 
@@ -201,7 +201,7 @@
 }
 
 .hero-card.accent {
-  background: radial-gradient(circle at top right, rgba(90, 140, 255, 0.25), transparent 55%),
+  background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 55%),
     var(--bg-card);
 }
 
@@ -210,7 +210,7 @@
   display: inline-flex;
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
-  background: rgba(50, 180, 255, 0.2);
+  background: rgba(255, 255, 255, 0.12);
   color: var(--accent-strong);
   font-weight: 600;
   font-size: 0.8rem;
@@ -242,7 +242,7 @@
 }
 
 .panel {
-  background: rgba(18, 26, 37, 0.8);
+  background: rgba(0, 0, 0, 0.8);
   border: 1px solid var(--border);
   border-radius: 24px;
   padding: 1.6rem;
@@ -282,11 +282,11 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
-  border: 1px solid rgba(106, 214, 214, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .chart-wrapper {
-  background: rgba(12, 17, 24, 0.6);
+  background: rgba(0, 0, 0, 0.95);
   border-radius: 18px;
   padding: 1rem;
 }
@@ -303,7 +303,7 @@
 }
 
 .chart-fill {
-  fill: rgba(50, 180, 255, 0.2);
+  fill: rgba(255, 255, 255, 0.08);
 }
 
 .chart-labels {
@@ -328,7 +328,7 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 0.75rem 1rem;
-  background: rgba(12, 17, 24, 0.65);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.04);
 }
@@ -370,11 +370,11 @@
   padding: 0.7rem 1.5rem;
   border-radius: 12px;
   border: none;
-  background: linear-gradient(120deg, rgba(106, 214, 214, 0.9), rgba(50, 180, 255, 0.85));
-  color: #041018;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.9), rgba(200, 200, 200, 0.85));
+  color: #000000;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 10px 30px rgba(50, 180, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
 .ghost {
@@ -388,13 +388,13 @@
 }
 
 .ghost:hover {
-  border-color: rgba(106, 214, 214, 0.5);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(4, 8, 12, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -403,7 +403,7 @@
 
 .modal {
   width: min(420px, 90vw);
-  background: #111a25;
+  background: #000000;
   border-radius: 20px;
   border: 1px solid var(--border);
   padding: 1.5rem;
@@ -435,7 +435,7 @@
   padding: 1rem;
   border-radius: 16px;
   border: 1px solid var(--border);
-  background: rgba(12, 17, 24, 0.6);
+  background: rgba(0, 0, 0, 0.6);
   color: var(--text-main);
   cursor: pointer;
   text-align: left;
@@ -459,7 +459,7 @@
 .modal-hint {
   font-size: 0.8rem;
   color: var(--text-muted);
-  border-left: 2px solid rgba(106, 214, 214, 0.4);
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
   padding-left: 0.75rem;
 }
 
