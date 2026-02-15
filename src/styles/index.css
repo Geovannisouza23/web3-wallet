@@ -2,20 +2,20 @@
   font-family: 'Space Grotesk', 'IBM Plex Sans', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #eaf0ff;
-  background-color: #0c1118;
+  color: #f2f2f2;
+  background-color: #000000;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --bg-primary: #0c1118;
-  --bg-secondary: #121a25;
-  --bg-card: #151f2c;
-  --bg-glow: rgba(90, 140, 255, 0.35);
-  --accent: #6ad6d6;
-  --accent-strong: #32b4ff;
-  --text-main: #eaf0ff;
-  --text-muted: #98a1b2;
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #0f0f10;
+  --bg-glow: rgba(255, 255, 255, 0.08);
+  --accent: #c9d0d8;
+  --accent-strong: #f2f2f2;
+  --text-main: #f2f2f2;
+  --text-muted: #9ca3af;
   --border: rgba(255, 255, 255, 0.08);
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
@@ -28,8 +28,8 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: radial-gradient(circle at top left, rgba(80, 140, 255, 0.18), transparent 45%),
-    radial-gradient(circle at 20% 80%, rgba(106, 214, 214, 0.14), transparent 45%),
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05), transparent 45%),
     var(--bg-primary);
   color: var(--text-main);
 }

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nebula-vault-deployment
+  labels:
+    app: nebula-vault
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nebula-vault
+  template:
+    metadata:
+      labels:
+        app: nebula-vault
+    spec:
+      containers:
+        - name: nebula-vault
+          image: nebula-vault:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          env:
+            - name: VITE_WALLETCONNECT_PROJECT_ID
+              value: "c2e85b23b5319f8ad7368ea62f185eea"
